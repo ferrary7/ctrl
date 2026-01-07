@@ -818,6 +818,7 @@ export default function TerritoryMap({
   }, [externalSelectedTerritory, loaded, onTerritoryClick, selectedTerritoryId]);
   
   // Handle activity ID parameter - fetch and zoom to the activity territory
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!activityId || !loaded || !map.current) return;
     

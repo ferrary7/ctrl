@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -107,9 +108,11 @@ export default function LeaderboardPage() {
                           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
                         >
                           {entry.user_avatar && (
-                            <img 
+                            <Image 
                               src={entry.user_avatar} 
                               alt={entry.user_name || 'User'}
+                              width={40}
+                              height={40}
                               className="w-10 h-10 rounded-full"
                             />
                           )}

@@ -177,7 +177,7 @@ export default function Activities() {
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-1">Choose 3 Activities</h3>
                   <p className="text-sm text-white/70">
-                    Latest activity auto-selected. Pick 2 more you're proud of. ({selectedIds.length}/3 selected)
+                    Latest activity auto-selected. Pick 2 more you&apos;re proud of. ({selectedIds.length}/3 selected)
                   </p>
                 </div>
                 <button

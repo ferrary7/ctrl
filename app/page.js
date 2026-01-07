@@ -200,7 +200,7 @@ export default function HomePage() {
               <div className="py-8">
                 <h3 className="text-2xl font-medium mb-3 text-white">Larger Always Wins</h3>
                 <p className="text-lg text-zinc-400 leading-relaxed">
-                  When territories overlap, the bigger area takes over. It's not about speed or distance—only the enclosed space matters.
+                  When territories overlap, the bigger area takes over. It&apos;s not about speed or distance—only the enclosed space matters.
                 </p>
               </div>
 

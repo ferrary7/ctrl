@@ -59,7 +59,7 @@ export default function CommunityPage() {
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🏃</div>
             <h2 className="text-2xl font-semibold text-white mb-2">No other players yet</h2>
-            <p className="text-zinc-400 mb-6">You're the first one here! Share the app with your running friends.</p>
+            <p className="text-zinc-400 mb-6">You&apos;re the first one here! Share the app with your running friends.</p>
             <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 max-w-md mx-auto text-left">
               <h3 className="text-lg font-semibold text-white mb-3">Invite Friends</h3>
               <p className="text-sm text-zinc-400 mb-4">

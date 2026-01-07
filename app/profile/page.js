@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
@@ -37,6 +38,7 @@ export default function ProfilePage() {
       loadUserData();
       loadProfileData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, router]);
 
   const loadUserData = async () => {
@@ -107,9 +109,11 @@ export default function ProfilePage() {
         <div className="mb-16">
           <div className="flex items-start gap-8 mb-12">
             {session?.user?.image && (
-              <img
+              <Image
                 src={session.user.image}
                 alt={session.user.name}
+                width={96}
+                height={96}
                 className="w-24 h-24 rounded-2xl border border-zinc-800"
               />
             )}
