@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import useSWR from 'swr';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -63,9 +64,11 @@ export default function Leaderboard({ limit = 10 }) {
               </div>
               
               {entry.avatarUrl && (
-                <img
+                <Image
                   src={entry.avatarUrl}
                   alt={entry.name}
+                  width={40}
+                  height={40}
                   className="w-10 h-10 rounded-full"
                 />
               )}

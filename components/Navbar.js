@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 
@@ -28,7 +29,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img src="/ctrl.svg" alt="CTRL" className="h-5" />
+            <Image src="/ctrl.svg" alt="CTRL" width={20} height={20} className="h-5" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,9 +52,11 @@ export default function Navbar() {
           {/* Desktop User Menu */}
           <div className="hidden md:flex items-center gap-3">
             {session.user.image && (
-              <img
+              <Image
                 src={session.user.image}
                 alt={session.user.name}
+                width={32}
+                height={32}
                 className="w-8 h-8 rounded-full ring-1 ring-white/20"
               />
             )}
@@ -107,9 +110,11 @@ export default function Navbar() {
             <div className="mt-3 pt-3 border-t border-white/10 px-4">
               <div className="flex items-center gap-3 mb-2">
                 {session.user.image && (
-                  <img
+                  <Image
                     src={session.user.image}
                     alt={session.user.name}
+                    width={36}
+                    height={36}
                     className="w-9 h-9 rounded-full ring-1 ring-white/20"
                   />
                 )}

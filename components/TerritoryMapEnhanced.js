@@ -331,6 +331,7 @@ export default function TerritoryMapEnhanced({
     };
   }, [session]);
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const flyToTerritory = (territory) => {
     if (!map.current || !territory.geometry) return;
     

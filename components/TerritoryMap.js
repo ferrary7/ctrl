@@ -722,6 +722,7 @@ export default function TerritoryMap({
   }, []);
   
   // Handle external territory selection (from battle feed, territory lists, etc.)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!externalSelectedTerritory || !loaded || !map.current) return;
     

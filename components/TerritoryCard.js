@@ -10,25 +10,25 @@ export default function TerritoryCard({ territory, onClose }) {
   const [activityDetails, setActivityDetails] = useState(null);
   const [loading, setLoading] = useState(false);
   
-  if (!territory) return null;
-  
   // Fetch activity details
   useEffect(() => {
-    if (territory.activityId) {
-      setLoading(true);
-      
-      fetch(`/api/activities/${territory.activityId}`)
-        .then(res => res.json())
-        .then(data => {
-          setActivityDetails(data);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error('Failed to fetch activity details:', err);
-          setLoading(false);
-        });
-    }
-  }, [territory.activityId]);
+    if (!territory?.activityId) return;
+    
+    setLoading(true);
+    
+    fetch(`/api/activities/${territory.activityId}`)
+      .then(res => res.json())
+      .then(data => {
+        setActivityDetails(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch activity details:', err);
+        setLoading(false);
+      });
+  }, [territory?.activityId]);
+  
+  if (!territory) return null;
   
   // Calculate days held and status
   const daysHeld = territory.daysHeld || 0;

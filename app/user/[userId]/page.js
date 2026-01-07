@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 
@@ -24,6 +25,7 @@ export default function PublicProfilePage() {
     if (userId) {
       fetchProfile();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, session, router]);
 
   const fetchProfile = async () => {
@@ -60,7 +62,7 @@ export default function PublicProfilePage() {
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-white mb-2">User not found</h2>
-            <p className="text-zinc-400 mb-6">This user doesn't exist</p>
+            <p className="text-zinc-400 mb-6">This user doesn&apos;t exist</p>
             <Link
               href="/community"
               className="text-sm text-white/70 hover:text-white transition-colors"
@@ -86,9 +88,11 @@ export default function PublicProfilePage() {
             {/* Avatar */}
             {user?.avatar && (
               <div className="relative">
-                <img
+                <Image
                   src={user.avatar}
                   alt={user.name}
+                  width={96}
+                  height={96}
                   className="w-24 h-24 rounded-2xl ring-2 ring-white/10"
                 />
                 {user.color && (
