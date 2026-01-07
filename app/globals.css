@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-800;
+  }
+  
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+/* MapLibre overrides for dark theme */
+.maplibregl-ctrl-group {
+  @apply bg-gray-900 border-gray-800 rounded-xl shadow-xl;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.maplibregl-ctrl-group:hover {
+  @apply shadow-2xl;
+  transform: translateY(-1px);
+}
+
+.maplibregl-ctrl button {
+  @apply text-white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.maplibregl-ctrl button:hover {
+  @apply bg-gray-800;
+  transform: scale(1.05);
+}
+
+.maplibregl-ctrl button:active {
+  transform: scale(0.95);
+}
+
+.maplibregl-popup-content {
+  @apply bg-gray-900 text-white border border-gray-800 rounded-lg;
+  backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+
+/* Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-150;
+}
+
+/* Glow effect for territories */
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.territory-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Apple-like smooth animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Smooth scale on active */
+.active\:scale-98:active {
+  transform: scale(0.98);
+}
+
+/* Enhanced shadow */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.5), 0 0 50px rgba(16, 185, 129, 0.1);
+}
+
+/* Smooth pulse animations for markers */
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  50% {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+}
+
+/* Smooth popup appearance */
+.maplibregl-popup {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.maplibregl-popup-content {
+  @apply rounded-lg shadow-xl;
+  animation: slideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slow pulse for attention-grabbing elements */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
