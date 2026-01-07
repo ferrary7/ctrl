@@ -54,119 +54,156 @@ export default function HomePageContent() {
 
   if (status === 'unauthenticated') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black">
+      <div className="min-h-screen bg-black">
         <Navbar />
 
         {/* Hero Section */}
-        <div className="min-h-screen flex items-center relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 relative z-10">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
-                Transform Your Runs and Rides Into Territory
-              </h1>
-              <p className="text-xl sm:text-2xl text-zinc-300 mb-8 max-w-2xl leading-relaxed">
-                Transform your runs and rides into competitive territory. Claim areas through completed loops, beat others by running bigger routes, and dominate the map.
-              </p>
+        <div className="h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+          {/* Subtle background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/50 to-black" />
 
-              <button
-                onClick={() => signIn('strava', { redirect: false })}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-zinc-100 transition-all text-lg"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/>
-                </svg>
-                Sign In with Strava
-              </button>
+          <div className="text-center max-w-5xl relative z-10">
+            <h1 className="text-6xl md:text-8xl font-semibold tracking-tight text-white mb-8 leading-tight">
+              Claim Territory
+              <br />
+              <span className="text-zinc-400">in Real Life</span>
+            </h1>
 
-              <p className="text-zinc-500 mt-6 text-sm">No account needed. We only read your public activity data.</p>
-            </div>
-          </div>
+            <p className="text-xl md:text-2xl text-zinc-400 mb-16 max-w-3xl mx-auto font-normal leading-relaxed">
+              Transform your runs and rides into competitive territory. Claim areas through completed loops, beat others by running bigger routes, and dominate the map.
+            </p>
 
-          {/* Background accent */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl"></div>
+            <button
+              onClick={() => signIn('strava', { callbackUrl: '/' })}
+              className="inline-flex items-center gap-3 bg-white hover:bg-zinc-100 text-black text-base font-medium px-8 py-4 rounded-full transition-all"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/>
+              </svg>
+              Connect with Strava
+            </button>
+
+            <p className="mt-8 text-sm text-zinc-500">
+              Free forever · Automatic syncing
+            </p>
           </div>
         </div>
 
         {/* How It Works Section */}
-        <div className="bg-black/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-16 text-center tracking-tight">How It Works</h2>
+        <div className="py-32 px-6 bg-zinc-950">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-semibold text-center mb-32 text-white tracking-tight">
+              How It Works
+            </h2>
 
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="text-center">
-                <div className="text-5xl mb-6">🕐</div>
-                <h3 className="text-2xl font-semibold text-white mb-3">Sync Your Activities</h3>
-                <p className="text-zinc-400 text-lg leading-relaxed">
-                  Connect your Strava account to automatically sync all your runs and rides into the system.
-                </p>
+            <div className="space-y-32">
+              {/* Step 1 */}
+              <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                  <div className="text-sm font-medium text-zinc-500 mb-4 tracking-wider">STEP 01</div>
+                  <h3 className="text-4xl font-semibold mb-6 text-white">Sync Your Activities</h3>
+                  <p className="text-xl text-zinc-400 leading-relaxed">
+                    Connect your Strava account and all your activities are automatically imported. Every run and ride gets analyzed for territory potential.
+                  </p>
+                </div>
+                <div className="h-80 rounded-3xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg className="w-24 h-24 text-zinc-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-zinc-500">Activity syncing</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="text-center">
-                <div className="text-5xl mb-6">✓</div>
-                <h3 className="text-2xl font-semibold text-white mb-3">Territory Detection</h3>
-                <p className="text-zinc-400 text-lg leading-relaxed">
-                  We analyze each activity to detect territories. Closed loops become full area territories. Self-intersecting routes extract the largest loop. Linear routes create 50m corridors on each side.
-                </p>
+              {/* Step 2 */}
+              <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="order-2 md:order-1 h-80 rounded-3xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg className="w-24 h-24 text-zinc-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-zinc-500">Automatic territory detection</p>
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="text-sm font-medium text-zinc-500 mb-4 tracking-wider">STEP 02</div>
+                  <h3 className="text-4xl font-semibold mb-6 text-white">Territory Detection</h3>
+                  <p className="text-xl text-zinc-400 leading-relaxed">
+                    Our smart system analyzes every activity. Closed loops become full territories. Self-intersecting routes detect the largest loop. Linear routes create 50m-wide corridors.
+                  </p>
+                </div>
               </div>
 
-              <div className="text-center">
-                <div className="text-5xl mb-6">🗺️</div>
-                <h3 className="text-2xl font-semibold text-white mb-3">Dominate the Map</h3>
-                <p className="text-zinc-400 text-lg leading-relaxed">
-                  Watch your territories appear on the global map in your custom color. Challenge other runners and cyclists in your area.
-                </p>
+              {/* Step 3 */}
+              <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                  <div className="text-sm font-medium text-zinc-500 mb-4 tracking-wider">STEP 03</div>
+                  <h3 className="text-4xl font-semibold mb-6 text-white">Dominate the Map</h3>
+                  <p className="text-xl text-zinc-400 leading-relaxed">
+                    Larger territories win when they overlap. Challenge friends, climb the leaderboard, and control more of the map. Your color represents your domain across the globe.
+                  </p>
+                </div>
+                <div className="h-80 rounded-3xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg className="w-24 h-24 text-zinc-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20H19a2 2 0 002-2v-2a2 2 0 00-2-2h-2.5a2 2 0 01-1-3.8A6 6 0 006.5 12" />
+                    </svg>
+                    <p className="text-zinc-500">Territory control</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Rules Section */}
-        <div className="bg-gradient-to-b from-black/50 to-black">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-16 text-center tracking-tight">The Rules</h2>
+        <div className="py-32 px-6 bg-black">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-semibold text-center mb-24 text-white tracking-tight">
+              The Rules
+            </h2>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3">Closed Loops - Full Territory</h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  Complete a closed loop where your start and end points are within 100 meters, and the entire enclosed area becomes your territory.
+            <div className="space-y-1 divide-y divide-zinc-800">
+              <div className="py-8">
+                <h3 className="text-2xl font-medium mb-3 text-white">Closed Loops - Full Territory</h3>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  Any activity with start and end points within 100 meters creates a full territory polygon. No self-intersections allowed.
                 </p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3">Complex Routes - Largest Loop</h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  For self-intersecting routes, we automatically detect and claim only the largest enclosed loop within your activity path.
+              <div className="py-8">
+                <h3 className="text-2xl font-medium mb-3 text-white">Complex Routes - Largest Loop</h3>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  For routes that cross themselves, our system finds every intersection and extracts the largest valid loop. Get creative with your routes!
                 </p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3">Linear Routes - Corridors</h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  Point-to-point routes create territorial corridors. A 50-meter buffer extends on each side of your path.
+              <div className="py-8">
+                <h3 className="text-2xl font-medium mb-3 text-white">Linear Routes - Corridors</h3>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  Straight-line routes create 50-meter corridors on each side of your path. No closed loop needed—every activity claims territory.
                 </p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3">Larger Always Wins</h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  When territories overlap, the bigger area takes over. It&apos;s not about speed or distance—only the enclosed space matters.
+              <div className="py-8">
+                <h3 className="text-2xl font-medium mb-3 text-white">Larger Always Wins</h3>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  When territories overlap, the bigger area takes control. Area matters more than speed or distance. Height and width determine dominance.
                 </p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3">Personal Territory Color</h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  Choose your unique territory color in your profile settings. All your territories display in this color on the global map.
+              <div className="py-8">
+                <h3 className="text-2xl font-medium mb-3 text-white">Personal Territory Color</h3>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  Select your personal territory color. All your claimed territories display in this color, making your domain visually distinct across the map.
                 </p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3">Instant Claiming</h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  The moment you complete an activity, territories are automatically detected and claimed. No manual approval needed.
+              <div className="py-8">
+                <h3 className="text-2xl font-medium mb-3 text-white">Instant Claiming</h3>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  Territories are claimed the moment your activity completes. Our system automatically detects and maps your new territory in real-time.
                 </p>
               </div>
             </div>
